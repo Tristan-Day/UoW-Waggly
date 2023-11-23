@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-waggly-dev-164145-authRole",
+      "UnauthRoleArn": "arn:aws:iam::711676230583:role/amplify-waggly-dev-164145-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::711676230583:role/amplify-waggly-dev-164145-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-waggly-dev-164145-deployment",
+      "UnauthRoleName": "amplify-waggly-dev-164145-unauthRole",
+      "StackName": "amplify-waggly-dev-164145",
+      "StackId": "arn:aws:cloudformation:eu-west-2:711676230583:stack/amplify-waggly-dev-164145/06ec8260-8956-11ee-92b3-0a77c650c71c",
+      "AmplifyAppId": "d21auoazgq6mrv"
+    }
+  }
+}
