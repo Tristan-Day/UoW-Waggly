@@ -9,11 +9,24 @@
       "UnauthRoleName": "amplify-waggly-dev-164145-unauthRole",
       "StackName": "amplify-waggly-dev-164145",
       "StackId": "arn:aws:cloudformation:eu-west-2:711676230583:stack/amplify-waggly-dev-164145/06ec8260-8956-11ee-92b3-0a77c650c71c",
-      "AmplifyAppId": "d21auoazgq6mrv"
+      "AmplifyAppId": "d21auoazgq6mrv",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-waggly-dev-164145-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "waggly17295b4e": {}
+      },
+      "function": {
+        "UserHandler": {
+          "deploymentBucketName": "amplify-waggly-dev-164145-deployment",
+          "s3Key": "amplify-builds/UserHandler-675759726c7556484c43-build.zip"
+        }
+      },
+      "api": {
+        "UserService": {}
+      },
+      "storage": {
+        "UserData": {}
       }
     }
   }
