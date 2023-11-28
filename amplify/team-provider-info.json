@@ -19,7 +19,7 @@
       "function": {
         "UserHandler": {
           "deploymentBucketName": "amplify-waggly-dev-164145-deployment",
-          "s3Key": "amplify-builds/UserHandler-675759726c7556484c43-build.zip"
+          "s3Key": "amplify-builds/UserHandler-53363079506770797855-build.zip"
         }
       },
       "api": {
