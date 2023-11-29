@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { Amplify } from 'aws-amplify';
-import { get, post, put } from 'aws-amplify/api';
+import { get, post, del } from 'aws-amplify/api';
 
 import awsExports from "./aws-exports";
 
@@ -45,6 +45,25 @@ async function getAccountDetails()
   try
   {
     const operation = get
+    ({
+      apiName: "UserService",
+      path: "/users"
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
+async function deleteAccountDetails()
+{
+  try
+  {
+    const operation = del
     ({
       apiName: "UserService",
       path: "/users"
@@ -120,6 +139,44 @@ async function getPetDetails()
   }
 }
 
+async function getUserPets()
+{
+  try
+  {
+    const operation = get
+    ({
+      apiName: "PetService",
+      path: "/pets"
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
+async function deletePetDetails()
+{
+  try
+  {
+    const operation = del
+    ({
+      apiName: "PetService",
+      path: "/pets/Texstar"
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
 function App()
 {
   return (
@@ -129,9 +186,12 @@ function App()
           <div>
             <button onClick={setAccountDetails}>Create User</button>
             <button onClick={getAccountDetails}>Get User</button>
+            <button onClick={deleteAccountDetails}>Delete User</button>
             <button onClick={getWalkerDetails}>Get Walker</button>
             <button onClick={setPetDetails}>Create Pet</button>
             <button onClick={getPetDetails}>Get Pet</button>
+            <button onClick={getUserPets}>Get Pets</button>
+            <button onClick={deletePetDetails}>Delete Pet</button>
             <button onClick={signOut}>Sign out</button>
           </div>
         )}

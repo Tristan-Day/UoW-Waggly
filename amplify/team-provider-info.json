@@ -20,11 +20,11 @@
         "AccountHandler": {},
         "UserHandler": {
           "deploymentBucketName": "amplify-waggly-dev-164145-deployment",
-          "s3Key": "amplify-builds/UserHandler-35524a4a6f6741444e55-build.zip"
+          "s3Key": "amplify-builds/UserHandler-516a487a6b76342b4432-build.zip"
         },
         "PetHandler": {
           "deploymentBucketName": "amplify-waggly-dev-164145-deployment",
-          "s3Key": "amplify-builds/PetHandler-575643674f4c4372576d-build.zip"
+          "s3Key": "amplify-builds/PetHandler-546635617a385a70722b-build.zip"
         }
       },
       "api": {

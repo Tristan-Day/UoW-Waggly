@@ -5,8 +5,8 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-const {DynamoDBClient} = require("@aws-sdk/client-dynamodb");
-const {DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand} = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+const { DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 
 const middleware = require("aws-serverless-express/middleware")
 const bodyParser = require("body-parser")
@@ -250,6 +250,36 @@ app.post(PATH, async function(request, response)
       response.json({text : "Failed to Process Request", error : error});
     }
 });
+
+/*************************************************
+ * HTTP DELETE - Remove a User from the Database *
+ *************************************************/
+
+app.delete(PATH, async function(request, response)
+{
+  // Security measure
+  const username = request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH";
+
+  const parameters = 
+  {
+    TableName : tableName,
+    Key : {IDENTIFIER : username}
+  };
+
+  // Query the Database
+  try
+  {
+    await client.send(new DeleteCommand(parameters))
+
+    response.status = 200;
+    response.json({text : "User Sucessfully Removed"});
+  }
+  catch (error)
+  {
+    response.statusCode = 500;
+    response.json({text : "Failed to Process Request", error : error});
+  }
+})
 
 app.listen(3000, function() 
 {
