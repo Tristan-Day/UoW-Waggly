@@ -17,9 +17,10 @@
         "waggly17295b4e": {}
       },
       "function": {
+        "AccountHandler": {},
         "UserHandler": {
           "deploymentBucketName": "amplify-waggly-dev-164145-deployment",
-          "s3Key": "amplify-builds/UserHandler-53363079506770797855-build.zip"
+          "s3Key": "amplify-builds/UserHandler-4c52646a643843436355-build.zip"
         }
       },
       "api": {

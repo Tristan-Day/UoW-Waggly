@@ -5,19 +5,11 @@
     "fieldName": "IDENTIFIER",
     "fieldType": "string"
   },
-  "sortKey": {
-    "fieldName": "FIRST_NAME",
-    "fieldType": "string"
-  },
   "gsi": [
     {
-      "name": "RegionIndex",
+      "name": "CityIndex",
       "partitionKey": {
-        "fieldName": "REGION",
-        "fieldType": "string"
-      },
-      "sortKey": {
-        "fieldName": "FIRST_NAME",
+        "fieldName": "CITY",
         "fieldType": "string"
       }
     },
@@ -25,10 +17,6 @@
       "name": "PostcodeIndex",
       "partitionKey": {
         "fieldName": "POSTCODE",
-        "fieldType": "string"
-      },
-      "sortKey": {
-        "fieldName": "FIRST_NAME",
         "fieldType": "string"
       }
     }

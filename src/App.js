@@ -17,27 +17,65 @@ import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(awsExports);
 
-async function createUser(identifier)
+async function setAccountDetails()
 {
-    try
-    {
-      const operation = post
-      ({
-        apiName: "UserService",
-        path: "/users",
-        options: 
-        {
-          body: {"TYPE" : "owner", "FIRST_NAME" : "Tristan", "LAST_NAME": "Day"}
-        }
-      });
+  try
+  {
+    const operation = post
+    ({
+      apiName: "UserService",
+      path: "/users",
+      options: 
+      {
+        body: {"TYPE" : "owner", "FIRST_NAME" : "Tristan", "LAST_NAME": "Day"}
+      }
+    });
 
-      const { body } = await operation.response;
-      console.log(await body.json());
-    }
-    catch (error)
-    {
-        console.error(error);
-    }
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
+async function getAccountDetails()
+{
+  try
+  {
+    const operation = get
+    ({
+      apiName: "UserService",
+      path: "/users"
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
+async function getWalkerDetails()
+{
+  try
+  {
+    const operation = get
+    ({
+      apiName: "UserService",
+      path: "/users/search?location=Winchester&maximum=50&minimum=40"
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
 }
 
 function App()
@@ -47,8 +85,9 @@ function App()
       <Authenticator>
         {({ signOut, user }) => (
           <div>
-            <button onClick={() => {
-            createUser(user.userId)}}>Create User</button>
+            <button onClick={setAccountDetails}>Create User</button>
+            <button onClick={getAccountDetails}>Get User</button>
+            <button onClick={getWalkerDetails}>Get Walker</button>
             <button onClick={signOut}>Sign out</button>
           </div>
         )}
