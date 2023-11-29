@@ -6,7 +6,7 @@ See the License for the specific language governing permissions and limitations 
 */
 
 const {DynamoDBClient} = require("@aws-sdk/client-dynamodb");
-const {DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, ScanCommand} = require("@aws-sdk/lib-dynamodb");
+const {DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand} = require("@aws-sdk/lib-dynamodb");
 
 const middleware = require("aws-serverless-express/middleware")
 const bodyParser = require("body-parser")
@@ -65,9 +65,9 @@ function checkMissingFields(source, fields)
 
 const PATH = "/users";
 
-/***************************************************
- * HTTP GET - Retreives a user based on Cognito ID *
- ***************************************************/
+/******************************************
+ * HTTP GET - Retreives a list of Walkers *
+ ******************************************/
 
 app.get(PATH + "/search", async function(request, response)
 {
@@ -137,6 +137,10 @@ app.get(PATH + "/search", async function(request, response)
   }  
 });
 
+/***************************************************
+ * HTTP GET - Retreives a User based on Cognito ID *
+ ***************************************************/
+
 app.get(PATH, async function(request, response) 
 {
     // Security measure
@@ -171,9 +175,9 @@ app.get(PATH, async function(request, response)
     }
 });
 
-/*************************************
- * HTTP post method to update a user *
- *************************************/
+/***************************************
+ * HTTP POST - Create or Update a User *
+ ***************************************/
 
 app.post(PATH, async function(request, response) 
 {
