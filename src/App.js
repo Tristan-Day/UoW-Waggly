@@ -78,6 +78,48 @@ async function getWalkerDetails()
   }
 }
 
+async function setPetDetails()
+{
+  try
+  {
+    const operation = post
+    ({
+      apiName: "PetService",
+      path: "/pets/Texstar",
+      options: 
+      {
+        body: {"Breed" : "Beagle", "Weight": "4.5", "Description" : "Lively", "Gender": "Male"}
+      }
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
+async function getPetDetails()
+{
+  try
+  {
+    const operation = get
+    ({
+      apiName: "PetService",
+      path: "/pets/Texstar"
+    })
+
+    const { body } = await operation.response;
+    console.log(await body.json());
+  }
+  catch (error)
+  {
+    console.error(error);
+  }
+}
+
 function App()
 {
   return (
@@ -88,6 +130,8 @@ function App()
             <button onClick={setAccountDetails}>Create User</button>
             <button onClick={getAccountDetails}>Get User</button>
             <button onClick={getWalkerDetails}>Get Walker</button>
+            <button onClick={setPetDetails}>Create Pet</button>
+            <button onClick={getPetDetails}>Get Pet</button>
             <button onClick={signOut}>Sign out</button>
           </div>
         )}

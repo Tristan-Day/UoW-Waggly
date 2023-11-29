@@ -1,5 +1,19 @@
 {
   "api": {
+    "PetService": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "PetHandler"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "UserService": {
       "dependsOn": [
         {
@@ -44,6 +58,25 @@
     }
   },
   "function": {
+    "PetHandler": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "PetData"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "UserHandler": {
       "build": true,
       "dependsOn": [
@@ -65,6 +98,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_PetHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "PetHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_PetHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "PetHandler"
+        }
+      ]
+    },
     "AMPLIFY_function_UserHandler_deploymentBucketName": {
       "usedBy": [
         {
@@ -83,6 +132,10 @@
     }
   },
   "storage": {
+    "PetData": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    },
     "UserData": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
