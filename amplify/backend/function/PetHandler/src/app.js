@@ -69,12 +69,12 @@ const PATH = "/pets";
  * HTTP GET - Retreives a Pet from a given Name and Cognito ID *
  ***************************************************************/
 
-app.get(PATH + "/:NAME", async function(request, response)
+app.get(PATH + "/:IDENTIFIER/:NAME", async function(request, response)
 {
   const key = 
   {
     NAME: request.params.NAME, 
-    USER_IDENTIFIER: request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH"
+    USER_IDENTIFIER: request.params.IDENTIFIER
   }
 
   const parameters = 
@@ -110,16 +110,14 @@ app.get(PATH + "/:NAME", async function(request, response)
  * HTTP GET - Retreives Pets associated with the given Cognito ID *
  ******************************************************************/
 
-app.get(PATH, async function(request, response)
+app.get(PATH + "/:IDENTIFIER", async function(request, response)
 {
-  const user = request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH"
-
   const parameters = 
   {
     TableName: tableName,
     IndexName: "UserIndex",
     KeyConditionExpression: "USER_IDENTIFIER = :user",
-    ExpressionAttributeValues: {":user" : user}
+    ExpressionAttributeValues: {":user" : request.params.IDENTIFIER}
   }
 
   // Query the Database
@@ -141,7 +139,7 @@ app.get(PATH, async function(request, response)
  * HTTP POST - Create or Update a Pet *
  **************************************/
 
-app.post(PATH + "/:NAME", async function(request, response) 
+app.post(PATH + "/:IDENTIFIER/:NAME", async function(request, response) 
 {
     const requiredFields = ["BREED", "WEIGHT", "DESCRIPTION", "GENDER"]
     const missingFields = checkMissingFields(request.body, requiredFields);
@@ -157,7 +155,7 @@ app.post(PATH + "/:NAME", async function(request, response)
     var pet = 
     {
       NAME: request.params.NAME,
-      USER_IDENTIFIER: request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH",
+      USER_IDENTIFIER: request.params.IDENTIFIER
     };
 
     Object.keys(request.body).forEach(key => 
@@ -193,12 +191,12 @@ app.post(PATH + "/:NAME", async function(request, response)
  * HTTP DELETE - Remove a Pet from the Database *
  ************************************************/
 
-app.delete(PATH + "/:NAME", async function(request, response)
+app.delete(PATH + "/:IDENTIFIER/:NAME", async function(request, response)
 {
   const key = 
   {
     NAME: request.params.NAME, 
-    USER_IDENTIFIER: request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH"
+    USER_IDENTIFIER: request.params.IDENTIFIER
   }
 
   const parameters = 

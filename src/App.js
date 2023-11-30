@@ -17,14 +17,14 @@ import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(awsExports);
 
-async function setAccountDetails()
+async function setAccountDetails(username)
 {
   try
   {
     const operation = post
     ({
       apiName: "UserService",
-      path: "/users",
+      path: `/users/${username}`,
       options: 
       {
         body: {"TYPE" : "owner", "FIRST_NAME" : "Tristan", "LAST_NAME": "Day"}
@@ -40,14 +40,14 @@ async function setAccountDetails()
   }
 }
 
-async function getAccountDetails()
+async function getAccountDetails(username)
 {
   try
   {
     const operation = get
     ({
       apiName: "UserService",
-      path: "/users"
+      path: `/users/${username}`
     })
 
     const { body } = await operation.response;
@@ -59,14 +59,14 @@ async function getAccountDetails()
   }
 }
 
-async function deleteAccountDetails()
+async function deleteAccountDetails(username)
 {
   try
   {
     const operation = del
     ({
       apiName: "UserService",
-      path: "/users"
+      path: `/users/${username}`
     })
 
     const { body } = await operation.response;
@@ -184,9 +184,9 @@ function App()
       <Authenticator>
         {({ signOut, user }) => (
           <div>
-            <button onClick={setAccountDetails}>Create User</button>
-            <button onClick={getAccountDetails}>Get User</button>
-            <button onClick={deleteAccountDetails}>Delete User</button>
+            <button onClick={() => {setAccountDetails(user.username)}}>Create User</button>
+            <button onClick={() => {getAccountDetails(user.username)}}>Get User</button>
+            <button onClick={() => {deleteAccountDetails(user.username)}}>Delete User</button>
             <button onClick={getWalkerDetails}>Get Walker</button>
             <button onClick={setPetDetails}>Create Pet</button>
             <button onClick={getPetDetails}>Get Pet</button>

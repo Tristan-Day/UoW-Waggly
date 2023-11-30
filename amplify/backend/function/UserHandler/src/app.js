@@ -69,34 +69,25 @@ const PATH = "/users";
  * HTTP GET - Retreives a list of Walkers *
  ******************************************/
 
-app.get(PATH + "/search", async function(request, response)
+app.get(PATH + "/search/:LOCATION", async function(request, response)
 {
-  const location = request.query.location;
-
-  if (typeof location === "undefined" || location === null)
-  {
-    response.status = 400;
-    response.json({error: "Location parameter must be provided"})
-    return;
-  }
-
   var parameters = {
     TableName: tableName
   }
 
   // Regex Pattern Matching against Postcodes
   const regex = /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/;
-  if (regex.test(location))
+  if (regex.test(request.params.LOCATION))
   {
     parameters["IndexName"] = "PostcodeIndex";
     parameters["KeyConditionExpression"] = "POSTCODE = :postcode";
-    parameters["ExpressionAttributeValues"] = {":postcode" : location};
+    parameters["ExpressionAttributeValues"] = {":postcode" : request.params.LOCATION};
   }
   else
   {
     parameters["IndexName"] = "CityIndex";
     parameters["KeyConditionExpression"] = "CITY = :city";
-    parameters["ExpressionAttributeValues"] = {":city" : location};
+    parameters["ExpressionAttributeValues"] = {":city" : request.params.LOCATION};
   }
 
   // Apply filter for Minimum and Maximum Price
@@ -141,15 +132,12 @@ app.get(PATH + "/search", async function(request, response)
  * HTTP GET - Retreives a User based on Cognito ID *
  ***************************************************/
 
-app.get(PATH, async function(request, response) 
+app.get(PATH + "/:IDENTIFIER", async function(request, response) 
 {
-    // Security measure
-    const username = request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH";
-
     const parameters = 
     {
       TableName : tableName,
-      Key : {IDENTIFIER : username}
+      Key : {IDENTIFIER : request.params.IDENTIFIER}
     };
 
     // Query the Database
@@ -179,7 +167,7 @@ app.get(PATH, async function(request, response)
  * HTTP POST - Create or Update a User *
  ***************************************/
 
-app.post(PATH, async function(request, response) 
+app.post(PATH + "/:IDENTIFIER", async function(request, response) 
 {
     if (!(request.body["TYPE"]))
     {
@@ -218,7 +206,7 @@ app.post(PATH, async function(request, response)
     // Filter request fields
     var user = 
     {
-      IDENTIFIER: request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH",
+      IDENTIFIER: request.params.IDENTIFIER,
       TYPE: request.body["TYPE"].toLowerCase()
     };
 
@@ -255,15 +243,12 @@ app.post(PATH, async function(request, response)
  * HTTP DELETE - Remove a User from the Database *
  *************************************************/
 
-app.delete(PATH, async function(request, response)
+app.delete(PATH + "/:IDENTIFIER", async function(request, response)
 {
-  // Security measure
-  const username = request.apiGateway.event.requestContext.identity.cognitoIdentityId || "UNAUTH";
-
   const parameters = 
   {
     TableName : tableName,
-    Key : {IDENTIFIER : username}
+    Key : {IDENTIFIER : request.params.IDENTIFIER}
   };
 
   // Query the Database
