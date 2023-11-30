@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+
+    font-family: 'Roboto', sans-serif;
+    color: #F8F8F8;
+}
+
+.Header nav {
+    padding: 0.6rem;
+
+    padding-inline-end: 1.2rem;
+    padding-inline-start: 1.2rem;
+
+    background-color: #21222C;
+    border-color: #008FFF;
+
+    border-width: 0px 0px 5px 0px;
+    border-style: solid;
+
+    display: flex;
+    align-items: center;
+}
+
+.Logo {
+    padding-right: 3rem;
+
+    width: fit-content;
+    height: fit-content;
+}
+
+.Logo:hover {
+    cursor: pointer;
+}
+
+.Header nav div {
+    display: flex;
+    align-items: center;
+}
+
+.Header nav div:hover {
+    cursor: pointer;
+}
+
+.Header nav div h1 {
+    padding: 0px;
+    font-size: 18px;
+}
+
+.Header nav div svg {
+    margin-right: 10px;
+}
+
+.Item {
+    padding-right: 3rem;
+}
+
+.Account {
+    margin-left: auto;
+}

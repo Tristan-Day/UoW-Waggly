@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    background-color: #282A36;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Question {
+    margin-top: 3rem;
+}
+
+.Features {
+    display: flex;
+    justify-content: center;
+
+    margin: 2rem;
+    gap: 5rem;
+}
+
+.Features div {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 20rem;
+    min-width: 15rem;
+}
+
+.Features img {
+    margin-bottom: 2rem;
+    object-fit: contain;
+    max-height: 7rem;
+}
