@@ -1,0 +1,25 @@
+{
+  "resourceName": "UserData",
+  "tableName": "UserData",
+  "partitionKey": {
+    "fieldName": "IDENTIFIER",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "CityIndex",
+      "partitionKey": {
+        "fieldName": "CITY",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "PostcodeIndex",
+      "partitionKey": {
+        "fieldName": "POSTCODE",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}

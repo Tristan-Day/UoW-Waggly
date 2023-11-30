@@ -1,0 +1,22 @@
+{
+  "resourceName": "PetData",
+  "tableName": "PetData",
+  "partitionKey": {
+    "fieldName": "NAME",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "USER_IDENTIFIER",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "UserIndex",
+      "partitionKey": {
+        "fieldName": "USER_IDENTIFIER",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}
