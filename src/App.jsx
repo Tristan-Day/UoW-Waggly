@@ -13,15 +13,14 @@ import Account from './pages/Account';
 
 Amplify.configure(awsExports);
 
-function App()
-{
+function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/search" element={<Search/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/account" element={<Account/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/account" element={<Account />} />
       </Routes>
     </BrowserRouter>
   )

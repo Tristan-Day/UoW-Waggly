@@ -1,16 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 body {
-    background-color: #282A36;
-
     text-align: center;
+
+    background-color: #282A36;
 
     display: flex;
     flex-direction: column;
 }
 
 .Question {
-    margin-top: 3rem;
+    margin-top: 5rem;
+    font-size: 40px;
 }
 
 .Features {
@@ -25,7 +24,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    max-width: 20rem;
+    width: 15rem;
     min-width: 15rem;
 }
 

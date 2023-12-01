@@ -11,15 +11,15 @@ export default function Home() {
         <div className="Features">
           <div>
             <img src="./icon/search.svg" />
-            <p1>Find trusted walkers who are a great match for you and your pets.</p1>
+            <p>Find trusted walkers who are a great match for you and your pets.</p>
           </div>
           <div>
             <img src="./icon/phone.svg" />
-            <p1>No hidden fees - we make it simple to find and compare prices.</p1>
+            <p>No hidden fees - we make it simple to find and compare prices.</p>
           </div>
           <div>
             <img src="./icon/glass.svg" />
-            <p1>Relax knowing your friend is in capable and safe hands.</p1>
+            <p>Relax knowing your friend is in capable and safe hands.</p>
           </div>
         </div>
       </body>

@@ -1,4 +1,4 @@
-import './Navigation.css';
+import './styles/Navigation.css';
 
 import Icon from '@mdi/react';
 import { mdiMagnify, mdiHeart, mdiAccountCircle } from '@mdi/js';
