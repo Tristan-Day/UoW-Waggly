@@ -51,7 +51,7 @@ export default function Navigation()
   return (
     <div className="Header">
       <nav>
-        <img src="./logo.svg" className="Logo" onClick={() => navigate("/")} />
+        <img src="./logo.svg" className="Logo" onClick={() => navigate("/")} alt="Waggly Logo"/>
         <div className="Item" onClick={() => navigate("/search")}>
           <Icon path={mdiMagnify} size={1.2} color="#F8F8F8" />
           <h1>Search Walkers</h1>
