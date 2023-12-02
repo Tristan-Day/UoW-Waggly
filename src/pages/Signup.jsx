@@ -1,61 +1,65 @@
 import './styles/Signup.css'
 
-import { Authenticator } from '@aws-amplify/ui-react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Authenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
-import '@aws-amplify/ui-react/styles.css';
+import '@aws-amplify/ui-react/styles.css'
 
-import { post } from 'aws-amplify/api';
-import { getCurrentUser } from 'aws-amplify/auth';
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { AccountContext } from '../App'
+import { Navigation } from '../components/'
 
-import Navigation from '../components/Navigation';
-import { AccountContext } from '../App';
+import { getAccount, updateAccount } from '../data/User'
 
 function Signup() 
 {
-  const [accountContext, setAccountContext] = useContext(AccountContext);
-  const [formData, setFromData] = useState({});
+  const [accountData, setAccountData] = useContext(AccountContext)
+  const [formData, setFromData] = useState({})
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const submitHandle = async () => {
-    const fields = ["first_name", "last_name", "city", "postcode", "description", "rate"];
-    const user = await getCurrentUser();
+    const fields = ["FIRST_NAME", "LAST_NAME", "CITY", "POSTCODE", "DESCRIPTION", "RATE"]
 
-    for (const field of fields) {
-      if (!(field in formData) || !(field)) {
-        alert(`Missing required field '${field}'`);
-        return;
+    for (const field of fields) 
+    {
+      if (!(field in formData) || !(field)) 
+      {
+        alert(`Missing required field '${field}'`)
+        return
       }
     }
 
-    try {
-      const operation = post
-        ({
-          apiName: "UserService",
-          path: "/users/" + user.username,
-          options: { body: { ...formData, type: "walker" } }
-        })
+    try 
+    {
+      const body = { ...formData, TYPE: "walker" }
+      await updateAccount(body)
 
-      await operation.response;
+      await alert("Signup Sucessful")
+    }
+    catch (error) 
+    {
+      alert("Signup Failed - Please try again later.")
+    }
 
-      await alert("Signup Sucessful");
-      navigate("/");
+    try 
+    {
+      setAccountData(await getAccount())
+      navigate("/")
     }
     catch (error) {
-      alert("Signup Failed - Please try again later.")
+      return
     }
   }
 
   // Prevent a user from attempting to signup more than once
   useEffect(() => {
-    if (accountContext && accountContext["TYPE"] === "walker") {
+    if (accountData && accountData["TYPE"] === "walker") {
       navigate("/account")
     }
-  }, []);
+  }, [accountData])
 
   return (
     <Authenticator>
@@ -68,20 +72,20 @@ function Signup()
             <div style={{ display: "flex", gap: "2rem" }}>
               <div>
                 <p>Firstname</p>
-                <input onChange={(event) => { setFromData({ ...formData, first_name: event.target.value }) }} />
+                <input onChange={(event) => { setFromData({ ...formData, FIRST_NAME: event.target.value }) }} />
               </div>
               <div>
                 <p>Lastname</p>
-                <input onChange={(event) => { setFromData({ ...formData, last_name: event.target.value }) }} />
+                <input onChange={(event) => { setFromData({ ...formData, LAST_NAME: event.target.value }) }} />
               </div>
             </div>
             <div>
               <p>City</p>
-              <input onChange={(event) => { setFromData({ ...formData, city: event.target.value }) }} />
+              <input onChange={(event) => { setFromData({ ...formData, CITY: event.target.value }) }} />
             </div>
             <div>
               <p>Postcode</p>
-              <input onChange={(event) => { setFromData({ ...formData, postcode: event.target.value }) }} />
+              <input onChange={(event) => { setFromData({ ...formData, POSTCODE: event.target.value }) }} />
             </div>
           </div>
           <div style={{ textAlign: "right" }}>
@@ -90,13 +94,13 @@ function Signup()
               <textarea
                 className="Description"
                 placeholder="Owners love to hear about your love for dogs!"
-                onChange={(event) => { setFromData({ ...formData, description: event.target.value }) }} />
+                onChange={(event) => { setFromData({ ...formData, DESCRIPTION: event.target.value }) }} />
             </div>
             <div>
               <p>Going Rate</p>
               <div className="Rate">
                 <h3>£</h3>
-                <input onChange={(event) => { setFromData({ ...formData, rate: parseInt(event.target.value) }) }} />
+                <input onChange={(event) => { setFromData({ ...formData, RATE: parseInt(event.target.value) }) }} />
               </div>
             </div>
           </div>
@@ -110,4 +114,4 @@ function Signup()
   )
 }
 
-export default withAuthenticator(Signup);
+export default withAuthenticator(Signup)

@@ -1,7 +1,7 @@
-import './styles/Card.css';
+import './styles/Card.css'
 
-import Icon from '@mdi/react';
-import { mdiAccountCircle } from '@mdi/js';
+import Icon from '@mdi/react'
+import { mdiAccountCircle } from '@mdi/js'
 
 export default function WalkerCard({ name, location, description, rate }) 
 {
@@ -19,5 +19,5 @@ export default function WalkerCard({ name, location, description, rate })
         <p>a Walk</p>
       </div>
     </div>
-  );
+  )
 }

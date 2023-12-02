@@ -1,9 +1,9 @@
-import { Authenticator } from '@aws-amplify/ui-react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { Authenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
-import '@aws-amplify/ui-react/styles.css';
+import '@aws-amplify/ui-react/styles.css'
 
-import Navigation from '../components/Navigation';
+import { Navigation } from '../components/'
 
 function Pets() 
 {
@@ -14,4 +14,4 @@ function Pets()
   )
 }
 
-export default withAuthenticator(Pets);
+export default withAuthenticator(Pets)

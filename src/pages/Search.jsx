@@ -1,41 +1,35 @@
-import './styles/Search.css';
+import './styles/Search.css'
 
-import { get } from 'aws-amplify/api';
-import { Authenticator } from '@aws-amplify/ui-react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { get } from 'aws-amplify/api'
+import { Authenticator } from '@aws-amplify/ui-react'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
-import '@aws-amplify/ui-react/styles.css';
+import '@aws-amplify/ui-react/styles.css'
 
-import { useState, createContext } from 'react';
+import { useState, createContext } from 'react'
+import { Navigation, Sidebar, WalkerCard} from '../components/'
 
-import Navigation from '../components/Navigation';
-
-import Sidebar from '../components/Filter';
-import WalkerCard from '../components/Card';
-
-export const FilterContext = createContext();
+export const FilterContext = createContext()
 
 function Search() 
 {
-  const [filterState, setFilterState] =
-    useState({ location: null, min: null, max: null });
-
-  const [results, setResults] = useState([]);
+  const [filterState, setFilterState] = useState({ location: null, min: null, max: null })
+  const [results, setResults] = useState([])
 
   const applyHandle = async () => {
     var query = "/users/search/"
 
     if (filterState["location"]) {
-      query += filterState["location"];
+      query += filterState["location"]
     }
     else {
-      alert("Please enter a City or Postcode");
-      return;
+      alert("Please enter a City or Postcode")
+      return
     }
 
     if (filterState["min"] > filterState["max"] && filterState["max"]) {
-      alert("Minimum rate cannot exceed Maximum");
-      return;
+      alert("Minimum rate cannot exceed Maximum")
+      return
     }
 
     if (filterState["min"]) {
@@ -58,16 +52,15 @@ function Search()
           path: query
         })
 
-      const { body } = await operation.response;
+      const { body } = await operation.response
 
-      setResults([]);
-      setResults(await body.json());
+      setResults([])
+      setResults(await body.json())
     }
     catch (error) {
-      alert("Error while retreiving walkers");
-      console.log(error);
+      alert("Error while retreiving walkers")
     }
-  };
+  }
 
   return (
     <Authenticator>
@@ -92,4 +85,4 @@ function Search()
   )
 }
 
-export default withAuthenticator(Search);
+export default withAuthenticator(Search)

@@ -1,17 +1,24 @@
-.Signup {
+.Account
+{
+    display: flex;
+}
+
+.Details {
     text-align: left;
 
     display: flex;
+    
     flex-direction: column;
+    flex-grow: 1;
 
     margin: 2rem;
 }
 
-.Signup input {
+.Details input {
     width: 15rem;
 }
 
-.Signup h1 {
+.Details h1 {
     margin: 0;
 }
 

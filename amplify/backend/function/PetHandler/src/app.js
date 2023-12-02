@@ -5,20 +5,20 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
-const { DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
+const { DynamoDBClient } = require("@aws-sdk/client-dynamodb")
+const { DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb")
 
 const middleware = require("aws-serverless-express/middleware")
 const bodyParser = require("body-parser")
 
 // Dynamo DB Initalisation
-const dynamo = new DynamoDBClient({region : process.env.TABLE_REGION});
-const client = DynamoDBDocumentClient.from(dynamo);
+const dynamo = new DynamoDBClient({region : process.env.TABLE_REGION})
+const client = DynamoDBDocumentClient.from(dynamo)
 
-let tableName = "PetData";
+let tableName = "PetData"
 if (process.env.ENV && process.env.ENV !== "NONE")
 {
-  tableName = tableName + "-" + process.env.ENV;
+  tableName = tableName + "-" + process.env.ENV
 }
 
 // Declare a new Express Application
@@ -39,31 +39,31 @@ app.use(function(request, response, next)
     Object.keys(request.body).forEach(key => {
       if (!(key.toUpperCase() in request.body))
       {
-        request.body[key.toUpperCase()] = request.body[key];
-        delete request.body[key];
+        request.body[key.toUpperCase()] = request.body[key]
+        delete request.body[key]
       }
-    });
+    })
   }
 
   next()
-});
+})
 
 function checkMissingFields(source, fields)
 {
-  var missingFields = [];
+  var missingFields = []
 
   for (const field of fields)
   {
     if (!(field in source))
     {
-      missingFields.push(field);
+      missingFields.push(field)
     }
   }
 
-  return missingFields;
+  return missingFields
 }
 
-const PATH = "/pets";
+const PATH = "/pets"
 
 /***************************************************************
  * HTTP GET - Retreives a Pet from a given Name and Cognito ID *
@@ -90,16 +90,16 @@ app.get(PATH + "/:IDENTIFIER/:NAME", async function(request, response)
 
     if (data.Item)
     {
-      response.status(200).json(data.Item);
+      response.status(200).json(data.Item)
     }
     else
     {
-      response.status(404).json({error : "Requested pet not found"});
+      response.status(404).json({error : "Requested pet not found"})
     }
   }
   catch (error)
   {
-    response.status(500).json({text : "Failed to Process Request", error : error});
+    response.status(500).json({text : "Failed to Process Request", error : error})
   }
 })
 
@@ -122,11 +122,11 @@ app.get(PATH + "/:IDENTIFIER", async function(request, response)
   {
     const data = await client.send(new QueryCommand(parameters))
 
-    response.status(200).json(data.Items);
+    response.status(200).json(data.Items)
   }
   catch (error)
   {
-    response.status(500).json({text : "Failed to Process Request", error : error});
+    response.status(500).json({text : "Failed to Process Request", error : error})
   }  
 })
 
@@ -137,12 +137,12 @@ app.get(PATH + "/:IDENTIFIER", async function(request, response)
 app.post(PATH + "/:IDENTIFIER/:NAME", async function(request, response) 
 {
     const requiredFields = ["BREED", "WEIGHT", "DESCRIPTION", "GENDER"]
-    const missingFields = checkMissingFields(request.body, requiredFields);
+    const missingFields = checkMissingFields(request.body, requiredFields)
 
     if (missingFields.length != 0)
     {
-      response.status(400).json({error : "Missing required field(s)", missingFields});
-      return;
+      response.status(400).json({error : "Missing required field(s)", missingFields})
+      return
     }
 
     // Filter request fields
@@ -150,34 +150,34 @@ app.post(PATH + "/:IDENTIFIER/:NAME", async function(request, response)
     {
       NAME: request.params.NAME,
       USER_IDENTIFIER: request.params.IDENTIFIER
-    };
+    }
 
     Object.keys(request.body).forEach(key => 
     {
       if (requiredFields.includes(key))
       {
-          pet[key] = request.body[key];
+          pet[key] = request.body[key]
       }
-    });
+    })
 
     const parameters = 
     {
       TableName : tableName, 
       Item : pet
-    };
+    }
 
     // Query the Database
     try
     {
-      await client.send(new PutCommand(parameters));
+      await client.send(new PutCommand(parameters))
 
-      response.status(200).json({message : "Pet Sucessfully Updated"});
+      response.status(200).json({message : "Pet Sucessfully Updated"})
     }
     catch (error)
     {
-      response.status(500).json({text : "Failed to Process Request", error : error});
+      response.status(500).json({text : "Failed to Process Request", error : error})
     }
-});
+})
 
 /************************************************
  * HTTP DELETE - Remove a Pet from the Database *
@@ -200,18 +200,18 @@ app.delete(PATH + "/:IDENTIFIER/:NAME", async function(request, response)
   // Query the Database
   try
   {
-    await client.send(new DeleteCommand(parameters));
+    await client.send(new DeleteCommand(parameters))
 
-    response.status(200).json({message : "Pet Sucessfully Removed"});
+    response.status(200).json({message : "Pet Sucessfully Removed"})
   }
   catch (error)
   {
-    response.status(500).json({text : "Failed to Process Request", error : error});
+    response.status(500).json({text : "Failed to Process Request", error : error})
   }
 })
 
 app.listen(3000, function() {
   console.log("App started")
-});
+})
 
 module.exports = app

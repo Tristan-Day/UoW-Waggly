@@ -1,0 +1,60 @@
+.Settings {
+    display: flex;
+    flex-direction: column;
+
+    min-width: fit-content;
+    min-height: 100vh;
+
+    max-width: fit-content;
+
+    padding: 1.2rem;
+
+    text-align: left;
+
+    border-color: #008FFF;
+
+    border-width: 0px 3px 0px 0px;
+    border-style: solid;
+}
+
+.Settings h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.Settings hr {
+    margin: 0.75rem 0 0.75rem 0;
+
+    width: 35%;
+    height: 3px;
+
+    background-color: #F8F8F8;
+}
+
+.Settings .Options
+{
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5rem;
+}
+
+.Settings .Options div
+{
+    margin-top: 1rem;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.7rem;
+}
+
+.Settings .Options div:hover
+{
+    cursor: pointer;
+}
+
+.Settings .Options p
+{
+    margin: 0;
+}

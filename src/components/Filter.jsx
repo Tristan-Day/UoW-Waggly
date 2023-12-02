@@ -1,49 +1,49 @@
-import './styles/Filter.css';
+import './styles/Filter.css'
 
-import { useContext } from 'react';
-import { FilterContext } from '../pages/Search';
+import { useContext } from 'react'
+import { FilterContext } from '../pages/Search'
 
 export default function Sidebar({ applyHandle }) 
 {
   const { filterState, setFilterState } = useContext(FilterContext)
 
   const setLocation = (event) => {
-    const location = event.target.value;
+    const location = event.target.value
     setFilterState((prevState) => ({
       ...prevState,
       location: location
-    }));
-  };
+    }))
+  }
 
   const setMinimum = (event) => {
-    var minimum;
+    var minimum
     if (event.target.value !== 0) {
-      minimum = event.target.value;
+      minimum = event.target.value
     }
     else {
-      minimum = null;
+      minimum = null
     }
 
     setFilterState((prevState) => ({
       ...prevState,
       min: minimum,
-    }));
-  };
+    }))
+  }
 
   const setMaximum = (event) => {
-    var maximum;
+    var maximum
     if (event.target.value !== 0) {
-      maximum = event.target.value;
+      maximum = event.target.value
     }
     else {
-      maximum = null;
+      maximum = null
     }
 
     setFilterState((prevState) => ({
       ...prevState,
       max: maximum,
-    }));
-  };
+    }))
+  }
 
   return (
     <div className="Sidebar">
@@ -65,5 +65,5 @@ export default function Sidebar({ applyHandle })
       </div>
       <button onClick={applyHandle}>Search</button>
     </div>
-  );
+  )
 }
