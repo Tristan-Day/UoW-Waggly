@@ -118,13 +118,11 @@ app.get(PATH + "/search/:LOCATION", async function(request, response)
   {
     const data = await client.send(new QueryCommand(parameters))
 
-    response.status = 200;
-    response.json(data.Items);
+    response.status(200).json(data.Items);
   }
   catch (error)
   {
-    response.statusCode = 500;
-    response.json({text : "Failed to Process Request", error : error});
+    response.status(500).json({text : "Failed to Process Request", error : error});
   }  
 });
 
@@ -147,19 +145,16 @@ app.get(PATH + "/:IDENTIFIER", async function(request, response)
 
       if (data.Item)
       {
-        response.status = 200;
-        response.json(data.Item);
+        response.status(200).json(data.Item);
       }
       else
       {
-        response.status = 404
-        response.json({error : "Requested account not found"});
+        response.status(404).json({error : "Requested account not found"});
       }
     }
     catch (error)
     {
-      response.statusCode = 500;
-      response.json({text : "Failed to Process Request", error : error});
+      response.status(500).json({text : "Failed to Process Request", error : error});
     }
 });
 
@@ -171,8 +166,7 @@ app.post(PATH + "/:IDENTIFIER", async function(request, response)
 {
     if (!(request.body["TYPE"]))
     {
-      response.status = 400;
-      response.json({error : "Missing required field 'TYPE'", body: request.body});
+      response.status(400).json({error : "Missing required field 'TYPE'", body: request.body});
       return;
     }
 
@@ -190,16 +184,14 @@ app.post(PATH + "/:IDENTIFIER", async function(request, response)
       break;
 
     default:
-      response.status = 400;
-      response.json({error : `"${request.body["TYPE"]}" is not a valid user type`});
+      response.status(400).json({error : `"${request.body["TYPE"]}" is not a valid user type`});
       return;
     }
 
     const missingFields = checkMissingFields(request.body, requiredFields);
     if (missingFields.length != 0)
     {
-      response.status = 400
-      response.json({error : "Missing required field(s)", missingFields})
+      response.status(400).json({error : "Missing required field(s)", missingFields});
       return;
     }
 
@@ -228,14 +220,11 @@ app.post(PATH + "/:IDENTIFIER", async function(request, response)
     try
     {
       await client.send(new PutCommand(parameters));
-
-      response.status = 200;
-      response.json({message : "User Sucessfully Updated"});
+      response.status(200).json({message : "User Sucessfully Updated"});
     }
     catch (error)
     {
-      response.statusCode = 500;
-      response.json({text : "Failed to Process Request", error : error});
+      response.status(500).json({text : "Failed to Process Request", error : error});
     }
 });
 
@@ -256,13 +245,11 @@ app.delete(PATH + "/:IDENTIFIER", async function(request, response)
   {
     await client.send(new DeleteCommand(parameters))
 
-    response.status = 200;
-    response.json({text : "User Sucessfully Removed"});
+    response.status(200).json({text : "User Sucessfully Removed"});
   }
   catch (error)
   {
-    response.statusCode = 500;
-    response.json({text : "Failed to Process Request", error : error});
+    response.status(500).json({text : "Failed to Process Request", error : error});
   }
 })
 
