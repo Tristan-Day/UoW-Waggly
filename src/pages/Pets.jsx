@@ -5,7 +5,8 @@ import '@aws-amplify/ui-react/styles.css';
 
 import Navigation from '../components/Navigation';
 
-function Pets() {
+function Pets() 
+{
   return (
     <Authenticator>
       <Navigation />

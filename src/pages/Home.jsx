@@ -2,7 +2,8 @@ import './styles/Home.css';
 
 import Navigation from "../components/Navigation"
 
-export default function Home() {
+export default function Home() 
+{
   return (
     <div>
       <Navigation />

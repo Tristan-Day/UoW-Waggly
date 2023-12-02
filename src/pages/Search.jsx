@@ -15,7 +15,8 @@ import WalkerCard from '../components/Card';
 
 export const FilterContext = createContext();
 
-function Search() {
+function Search() 
+{
   const [filterState, setFilterState] =
     useState({ location: null, min: null, max: null });
 
@@ -24,7 +25,7 @@ function Search() {
   const applyHandle = async () => {
     var query = "/users/search/"
 
-    if (filterState["location"] !== null) {
+    if (filterState["location"]) {
       query += filterState["location"];
     }
     else {
@@ -32,7 +33,7 @@ function Search() {
       return;
     }
 
-    if (filterState["min"] > filterState["max"] && filterState["max"] !== null) {
+    if (filterState["min"] > filterState["max"] && filterState["max"]) {
       alert("Minimum rate cannot exceed Maximum");
       return;
     }
@@ -64,7 +65,7 @@ function Search() {
     }
     catch (error) {
       alert("Error while retreiving walkers");
-      console.log(error)
+      console.log(error);
     }
   };
 

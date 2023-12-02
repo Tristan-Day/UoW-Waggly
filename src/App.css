@@ -47,3 +47,26 @@ input:focus {
     background-color: #3a3e4d;
     outline: none;
 }
+
+textarea {
+    resize: none;
+
+    padding: 0.4rem;
+
+    border-radius: 5px;
+    border-style: solid;
+
+    background-color: #2e313d;
+    border-color: #F8F8F8;
+
+    color: #F8F8F8;
+}
+
+textarea:hover {
+    background-color: #3a3e4d;
+}
+
+textarea:focus {
+    background-color: #3a3e4d;
+    outline: none;
+}

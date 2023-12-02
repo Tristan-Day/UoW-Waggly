@@ -3,7 +3,8 @@ import './styles/Filter.css';
 import { useContext } from 'react';
 import { FilterContext } from '../pages/Search';
 
-export default function Sidebar({ applyHandle }) {
+export default function Sidebar({ applyHandle }) 
+{
   const { filterState, setFilterState } = useContext(FilterContext)
 
   const setLocation = (event) => {
@@ -16,7 +17,7 @@ export default function Sidebar({ applyHandle }) {
 
   const setMinimum = (event) => {
     var minimum;
-    if (event.target.value != 0) {
+    if (event.target.value !== 0) {
       minimum = event.target.value;
     }
     else {
@@ -31,7 +32,7 @@ export default function Sidebar({ applyHandle }) {
 
   const setMaximum = (event) => {
     var maximum;
-    if (event.target.value != 0) {
+    if (event.target.value !== 0) {
       maximum = event.target.value;
     }
     else {
