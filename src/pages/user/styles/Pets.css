@@ -1,0 +1,12 @@
+.Pets .Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 2rem;
+}
+
+.Pets button {
+    width: 7rem;
+    height: min-content;
+}

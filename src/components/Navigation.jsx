@@ -1,7 +1,7 @@
 import './styles/Navigation.css'
 
 import Icon from '@mdi/react'
-import { mdiMagnify, mdiHeart, mdiAccountCircle } from '@mdi/js'
+import { mdiMagnify, mdiHeart, mdiCog } from '@mdi/js'
 
 import { getCurrentUser } from 'aws-amplify/auth'
 
@@ -10,19 +10,16 @@ import { useNavigate } from 'react-router-dom'
 
 import { AccountContext } from '../App'
 
-export default function Navigation() 
-{
+export default function Navigation() {
   const [accountData] = useContext(AccountContext)
 
   const [signupActionState, setSignupAction] = useState(null)
-  const [accountActionState, setAccountAction] = useState(null)
+  const [settingsActionState, setSettingsAction] = useState(null)
 
   // Adapt content to walkers and other users
   const getSignupContext = () => {
-    if (accountData) 
-    {
-      if (accountData["TYPE"] === "walker") 
-      {
+    if (accountData) {
+      if (accountData["TYPE"] === "walker") {
         setSignupAction(null)
         return
       }
@@ -37,15 +34,15 @@ export default function Navigation()
   }
 
   // Adapt content to public and authenticated sessions
-  const getAccountAction = () => {
+  const getSettingsAction = () => {
     return getCurrentUser()
-      .then(user => setAccountAction(<h1>Your Account</h1>))
-      .catch(error => setAccountAction(<h1>Sign In</h1>))
+      .then(user => setSettingsAction(<h1>Your Account</h1>))
+      .catch(error => setSettingsAction(<h1>Sign In</h1>))
   }
 
   useEffect(() => {
     getSignupContext()
-    getAccountAction()
+    getSettingsAction()
   }, [])
 
   const navigate = useNavigate()
@@ -53,15 +50,15 @@ export default function Navigation()
   return (
     <div className="Header">
       <nav>
-        <img src="./logo.svg" className="Logo" onClick={() => navigate("/")} alt="Waggly Logo" />
+        <img src="/logo.svg" className="Logo" onClick={() => navigate("/")} alt="Waggly Logo" />
         <div className="Item" onClick={() => navigate("/search")}>
           <Icon path={mdiMagnify} size={1.2} color="#F8F8F8" />
           <h1>Search Walkers</h1>
         </div>
         {signupActionState}
-        <div className="Account" onClick={() => navigate("/account")}>
-          <Icon path={mdiAccountCircle} size={1.2} color="#F8F8F8" />
-          {accountActionState}
+        <div style={{ marginLeft: "auto" }} onClick={() => navigate("/settings")}>
+          <Icon path={mdiCog} size={1.2} color="#F8F8F8" />
+          {settingsActionState}
         </div>
       </nav>
     </div>

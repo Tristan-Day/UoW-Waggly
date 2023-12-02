@@ -5,7 +5,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react'
 
 import '@aws-amplify/ui-react/styles.css'
 
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { AccountContext } from '../App'
@@ -57,7 +57,7 @@ function Signup()
   // Prevent a user from attempting to signup more than once
   useEffect(() => {
     if (accountData && accountData["TYPE"] === "walker") {
-      navigate("/account")
+      navigate("/settings/account")
     }
   }, [accountData])
 

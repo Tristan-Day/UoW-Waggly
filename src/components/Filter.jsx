@@ -46,7 +46,7 @@ export default function Sidebar({ applyHandle })
   }
 
   return (
-    <div className="Sidebar">
+    <div className="Filter">
       <h1>Find a Walker</h1>
       <hr />
       <div className="Options">

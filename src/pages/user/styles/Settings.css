@@ -1,4 +1,4 @@
-.Settings {
+.Sidebar {
     display: flex;
     flex-direction: column;
 
@@ -17,12 +17,12 @@
     border-style: solid;
 }
 
-.Settings h1 {
+.Sidebar h1 {
     margin: 0;
     font-size: 20px;
 }
 
-.Settings hr {
+.Sidebar hr {
     margin: 0.75rem 0 0.75rem 0;
 
     width: 35%;
@@ -31,16 +31,14 @@
     background-color: #F8F8F8;
 }
 
-.Settings .Options
-{
+.Sidebar .Options {
     display: flex;
     flex-direction: column;
 
     gap: 0.5rem;
 }
 
-.Settings .Options div
-{
+.Sidebar .Options div {
     margin-top: 1rem;
 
     display: flex;
@@ -49,12 +47,10 @@
     gap: 0.7rem;
 }
 
-.Settings .Options div:hover
-{
+.Sidebar .Options div:hover {
     cursor: pointer;
 }
 
-.Settings .Options p
-{
+.Sidebar .Options p {
     margin: 0;
 }

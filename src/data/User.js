@@ -25,3 +25,15 @@ export const updateAccount = async (body) => {
 
   await operation.response
 }
+
+export const getPets = async () => {
+  const user = await getCurrentUser()
+
+  const operation = get({
+    apiName: "PetService",
+    path: "/pets/" + user.username
+  })
+
+  const { body } = await operation.response
+  return await body.json()
+}

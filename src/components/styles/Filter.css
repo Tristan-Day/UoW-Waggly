@@ -1,4 +1,4 @@
-.Sidebar {
+.Filter {
     display: flex;
     flex-direction: column;
 
@@ -15,12 +15,12 @@
     border-style: solid;
 }
 
-.Sidebar h1 {
+.Filter h1 {
     margin: 0;
     font-size: 20px;
 }
 
-.Sidebar hr {
+.Filter hr {
     margin: 0.75rem 0 0.75rem 0;
 
     width: 35%;
@@ -29,33 +29,33 @@
     background-color: #F8F8F8;
 }
 
-.Sidebar .Options {
+.Filter .Options {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.Sidebar .Options .Location {
+.Filter .Options .Location {
     padding: 0.4rem;
 }
 
-.Sidebar .Options input {
+.Filter .Options input {
     width: 100%;
 
     padding: 0;
     margin: 0;
 }
 
-.Sidebar .Options div {
+.Filter .Options div {
     display: flex;
     justify-content: space-between;
 }
 
-.Sidebar .Options p {
+.Filter .Options p {
     margin: 0;
 }
 
-.Sidebar button {
+.Filter button {
     width: 60%;
     margin-top: 1.4rem;
 }
