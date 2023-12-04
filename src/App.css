@@ -115,3 +115,22 @@ textarea:focus {
     background-color: #3a3e4d;
     outline: none;
 }
+
+select {
+    padding: 0.6rem;
+    border-radius: 5px;
+
+    background-color: #2e313d;
+    border-color: #F8F8F8;
+
+    color: #F8F8F8;
+}
+
+select:hover {
+    background-color: #3a3e4d;
+}
+
+select:active {
+    background-color: #23262f;
+    outline: none;
+}

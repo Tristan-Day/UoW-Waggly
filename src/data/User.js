@@ -37,3 +37,16 @@ export const getPets = async () => {
   const { body } = await operation.response
   return await body.json()
 }
+
+export const updatePet = async (name, body) => {
+  const user = await getCurrentUser()
+
+  const operation = post
+    ({
+      apiName: "PetService",
+      path: `/pets/${user.username}/${name}`,
+      options: { body: body }
+    })
+
+  await operation.response
+}

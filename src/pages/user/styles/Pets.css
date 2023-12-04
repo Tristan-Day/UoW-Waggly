@@ -1,12 +1,8 @@
-.Pets .Header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#registration {
+    padding: 1rem 2rem 2rem 2rem;
 
-    margin-bottom: 2rem;
-}
+    border-color: #008FFF;
 
-.Pets button {
-    width: 7rem;
-    height: min-content;
+    border-width: 3px 0px 0px 0px;
+    border-style: solid;
 }

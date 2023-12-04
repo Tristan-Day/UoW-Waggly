@@ -56,7 +56,7 @@ function Account() {
   return (
     <Authenticator>
       <div className="Form">
-        <h1 style={{margin: 0}}>Your Details</h1>
+        <h1 style={{ margin: 0 }}>Your Details</h1>
         <p>These details are visible on your listing.</p>
         <div id="fields">
           <div>
@@ -99,7 +99,7 @@ function Account() {
         </div>
         <div id="controls">
           <button onClick={() => navigate("/settings/account")}>Cancel</button>
-          <button onClick={updateHandle}>Update</button>
+          <button onClick={() => updateHandle()}>Update</button>
         </div>
       </div>
     </Authenticator>

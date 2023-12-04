@@ -101,7 +101,7 @@ function Signup() {
         </div>
         <div id="controls">
           <button onClick={() => navigate("/")}>Cancel</button>
-          <button onClick={submitHandle}>Submit</button>
+          <button onClick={() => submitHandle()}>Submit</button>
         </div>
       </div>
     </Authenticator>
