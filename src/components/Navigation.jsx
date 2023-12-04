@@ -43,7 +43,7 @@ export default function Navigation() {
   useEffect(() => {
     getSignupContext()
     getSettingsAction()
-  }, [])
+  }, [accountData])
 
   const navigate = useNavigate()
 

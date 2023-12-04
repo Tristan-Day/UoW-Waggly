@@ -36,6 +36,21 @@ function Account() {
       }
     }
 
+    // Data validation checks
+    if (formData["FIRSTNAME"].length > 30)
+    {
+      alert("Firstname cannot exceed 30 characters")
+    }
+
+    if (formData["LASTNAME"].length > 30)
+    {
+      alert("Lastname cannot exceed 30 characters")
+    }
+
+    if (formData["RATE"] > 100) {
+      alert("Rate cannot be set higher than £100")
+    }
+
     try {
       const body = { ...formData, TYPE: "walker" }
       await updateAccount(body)

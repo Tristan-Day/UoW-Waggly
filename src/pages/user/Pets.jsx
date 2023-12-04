@@ -30,6 +30,17 @@ function Pets() {
       }
     }
 
+    // Data validation checks
+    if (formData["NAME"].length > 30)
+    {
+      alert("Name cannot exceed 30 characters")
+    }
+
+    if (formData["BREED"].length > 30)
+    {
+      alert("Breed cannot exceed 30 characters")
+    }
+
     try {
       await updatePet(formData["NAME"], formData)
 
