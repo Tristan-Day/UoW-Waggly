@@ -47,7 +47,9 @@
 
 .Price {
     text-align: right;
+
     margin-left: auto;
+    margin-right: 0.7rem;
 }
 
 .Card .Price p {

@@ -48,6 +48,49 @@ input:focus {
     outline: none;
 }
 
+input[type="range"] {
+    -webkit-appearance: none;
+
+    width: 100%;
+    height: 10px;
+
+    border-radius: 10px;
+
+    background-color: #2e313d;
+    border-color: #F8F8F8;
+
+    border-style: solid;
+    border-width: 1px;
+    
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 10px;
+
+    background-color: #F8F8F8;
+    border-color: #2e313d;
+
+    border-style: solid;
+    border-width: 1px;
+
+    cursor: pointer;
+}
+
+input[type="range"]:hover {
+    background-color: #3a3e4d;
+}
+
+input[type="range"]:focus {
+    background-color: #3a3e4d;
+    outline: none;
+}
+
 textarea {
     resize: none;
 
