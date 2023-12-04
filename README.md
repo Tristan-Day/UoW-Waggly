@@ -1,34 +1,48 @@
 # UoW Waggly
 
-This AWS based React application provides 
+This repository contains code submitted for Software Engineering Module (BS3221). The web application, built in a cloud-native approach with React and Express, allows dog walkers to advertise their services and owners to register their animals and find nearby walkers.
 
-# Getting Started with Create React App
+The application is hosted on Amazon Web Services using Amplify, Lambda and, DynamoDB and API Gateway to facilitate a full-stack deployment. Currently, the master branch is configured with continuous deployment and integration.
+
+## Features
+
+* Manage a public listing, advertising price and location for walker services.
+* Search public listings matching a specific location and defined price range.
+* Register and view animals.
+
+## Live Deployment
+
+A live version of the application can be found at:\
+https://master.d21auoazgq6mrv.amplifyapp.com
+
+*```Note: This URL will only be active for the assessment period. ```*
+
+# Deploying the Application on the Cloud
+
+To deploy this application, you will require the following:
+
+* Node Package Manager v10.2.4 or later
+* Amplify Node Package v12.8.2 or later
+* An Amazon Web Services IAM role with appropriate Amplify Access Permissions
+
+To deploy the application 
+
+1. Use `amplify configure` to setup your AWS profile configuration
+2. Use `amplify publish` to push the stack defined in the respository to your AWS account.
+
+*`Note: This process has not been tested by the author and relies on publically available information. Should the process fail, please see 'Running the Application Locally'`*
+
+# Running the Application Locally
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+To run the application locally, you must first install project dependencies with
 
-In the project directory, you can run:
+`npm install`
 
-### `npm start`
+Then run the application using
 
-Runs the app in the development mode.\
+`npm start`
+
+This will run the application in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
