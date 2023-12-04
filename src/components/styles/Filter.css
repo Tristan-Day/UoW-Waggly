@@ -1,0 +1,59 @@
+.Filter {
+    display: flex;
+    flex-direction: column;
+
+    min-width: fit-content;
+    min-height: 100vh;
+
+    padding: 1.2rem;
+
+    text-align: left;
+
+    border-color: #008FFF;
+
+    border-width: 0px 3px 0px 0px;
+    border-style: solid;
+}
+
+.Filter h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.Filter hr {
+    margin: 0.75rem 0 0.75rem 0;
+
+    width: 35%;
+    height: 3px;
+
+    background-color: #F8F8F8;
+}
+
+.Filter #options {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.2rem;
+}
+
+.Filter #options #location {
+    padding: 0.4rem;
+}
+
+.Filter #options input {
+    width: 100%;
+}
+
+.Filter #options div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Filter #options p {
+    margin: 0;
+}
+
+.Filter button {
+    width: 60%;
+    margin-top: 1.4rem;
+}
