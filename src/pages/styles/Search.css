@@ -1,8 +1,4 @@
-.Search {
-    display: flex;
-}
-
-.Results {
+#results {
     display: flex;
 
     flex: 1;

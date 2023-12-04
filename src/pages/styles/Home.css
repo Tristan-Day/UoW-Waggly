@@ -1,26 +1,21 @@
-body {
-    text-align: center;
-
-    background-color: #282A36;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.Question {
+#question {
     margin-top: 5rem;
     font-size: 40px;
+
+    text-align: center;
 }
 
-.Features {
+#features {
     display: flex;
+
     justify-content: center;
+    text-align: center;
 
     margin: 2rem;
     gap: 5rem;
 }
 
-.Features div {
+#features div {
     display: flex;
     flex-direction: column;
 
@@ -28,7 +23,7 @@ body {
     min-width: 15rem;
 }
 
-.Features img {
+#features img {
     margin-bottom: 2rem;
     object-fit: contain;
     max-height: 7rem;

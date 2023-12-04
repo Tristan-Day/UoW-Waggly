@@ -65,10 +65,10 @@ function Search()
   return (
     <Authenticator>
       <Navigation />
-      <div className='Search'>
+      <div style={{display: "flex"}}>
         <FilterContext.Provider value={{ filterState, setFilterState }}>
           <Sidebar applyHandle={applyHandle} />
-          <div className="Results">
+          <div id="results">
             {results.map((walker, index) => (
               <WalkerCard
                 key={index}

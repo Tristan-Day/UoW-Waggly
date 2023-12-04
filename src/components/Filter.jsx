@@ -3,8 +3,7 @@ import './styles/Filter.css'
 import { useContext } from 'react'
 import { FilterContext } from '../pages/Search'
 
-export default function Sidebar({ applyHandle }) 
-{
+export default function Sidebar({ applyHandle }) {
   const { filterState, setFilterState } = useContext(FilterContext)
 
   const setLocation = (event) => {
@@ -49,9 +48,11 @@ export default function Sidebar({ applyHandle })
     <div className="Filter">
       <h1>Find a Walker</h1>
       <hr />
-      <div className="Options">
-        <p>Location</p>
-        <input placeholder="Enter a Postcode or City" className="Location" onChange={setLocation} />
+      <div id="options">
+        <div style={{flexDirection: "column", gap: "0.5rem"}}>
+          <p style={{marginBottom: "0.2rem"}}>Location</p>
+          <input placeholder="Enter a Postcode or City" id="location" onChange={setLocation} />
+        </div>
         <div>
           <p>Minimum Price</p>
           <p>£ {filterState["min"] ? filterState["min"] : "-"}</p>

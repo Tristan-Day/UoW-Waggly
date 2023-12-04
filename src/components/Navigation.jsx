@@ -48,19 +48,17 @@ export default function Navigation() {
   const navigate = useNavigate()
 
   return (
-    <div className="Header">
-      <nav>
-        <img src="/logo.svg" className="Logo" onClick={() => navigate("/")} alt="Waggly Logo" />
-        <div className="Item" onClick={() => navigate("/search")}>
-          <Icon path={mdiMagnify} size={1.2} color="#F8F8F8" />
-          <h1>Search Walkers</h1>
-        </div>
-        {signupActionState}
-        <div style={{ marginLeft: "auto" }} onClick={() => navigate("/settings")}>
-          <Icon path={mdiCog} size={1.2} color="#F8F8F8" />
-          {settingsActionState}
-        </div>
-      </nav>
-    </div>
+    <nav>
+      <img src="/logo.svg" id="logo" onClick={() => navigate("/")} alt="Waggly Logo" />
+      <div id="item" onClick={() => navigate("/search")}>
+        <Icon path={mdiMagnify} size={1.2} color="#F8F8F8" />
+        <h1>Search Walkers</h1>
+      </div>
+      {signupActionState}
+      <div style={{ marginLeft: "auto" }} onClick={() => navigate("/settings")}>
+        <Icon path={mdiCog} size={1.2} color="#F8F8F8" />
+        {settingsActionState}
+      </div>
+    </nav>
   )
 }

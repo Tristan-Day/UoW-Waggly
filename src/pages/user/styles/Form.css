@@ -1,40 +1,37 @@
-.Account
-{
-    display: flex;
-}
-
-.Details {
-    text-align: left;
-
-    display: flex;
-    
-    flex-direction: column;
-    flex-grow: 1;
-
+.Form {
     margin: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
 }
 
-.Details input {
-    width: 15rem;
-}
-
-.Details h1 {
+.Form #heading {
     margin: 0;
 }
 
-.Fields {
+.Form #subheading {
+    margin: 0.5rem 0rem 1rem 0rem;
+}
+
+.Form #fields {
     display: flex;
     justify-content: space-between;
 }
 
-.Fields .Description {
+.Form #fields input {
+    width: 15rem;
+}
+
+.Form #fields #description {
     height: 20vb;
     width: 40vb;
 
     padding: 1rem;
 }
 
-.Fields .Rate {
+.Form #fields #rate {
     display: flex;
 
     justify-content: right;
@@ -43,17 +40,17 @@
     gap: 1rem;
 }
 
-.Fields .Rate h3 {
+.Form #fields #rate h3 {
     margin: 0;
 }
 
-.Controls {
+.Form #controls {
     display: flex;
     justify-content: space-between;
 
     margin-top: 3rem;
 }
 
-.Controls button {
+.Form #controls button {
     width: 7rem;
 }

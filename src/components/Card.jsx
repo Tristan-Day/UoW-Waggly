@@ -12,7 +12,7 @@ export function WalkerCard({ name, location, description, rate }) {
         <h2>{location}</h2>
         <p>{description}</p>
       </div>
-      <div className="Price">
+      <div id="price">
         <p>From</p>
         <h1>{rate}</h1>
         <p>a Walk</p>

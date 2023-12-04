@@ -8,8 +8,8 @@ export default function Home()
     <div>
       <Navigation />
       <body>
-        <h1 className="Question">Looking for Local Trusted Walkers?</h1>
-        <div className="Features">
+        <h1 id="question">Looking for Local Trusted Walkers?</h1>
+        <div id="features">
           <div>
             <img src="./icon/search.svg" alt="A Magnifying Glass"/>
             <p>Find trusted walkers who are a great match for you and your pets.</p>

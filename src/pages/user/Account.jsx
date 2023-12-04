@@ -1,4 +1,4 @@
-import './styles/Account.css'
+import './styles/Form.css'
 
 import { Authenticator } from '@aws-amplify/ui-react'
 import { withAuthenticator } from '@aws-amplify/ui-react'
@@ -55,10 +55,10 @@ function Account() {
 
   return (
     <Authenticator>
-      <div className="Details">
-        <h1>Your Details</h1>
+      <div className="Form">
+        <h1 style={{margin: 0}}>Your Details</h1>
         <p>These details are visible on your listing.</p>
-        <div className='Fields'>
+        <div id="fields">
           <div>
             <div style={{ display: "flex", gap: "2rem" }}>
               <div>
@@ -83,21 +83,21 @@ function Account() {
             <div>
               <p>Biography</p>
               <textarea
-                className="Description"
-                placeholder="Owners love to hear about your love for dogs!"
+                id="description"
                 defaultValue={formData["DESCRIPTION"]}
+                placeholder="Owners love to hear about your love for dogs!"
                 onChange={(event) => { formData["DESCRIPTION"] = event.target.value }} />
             </div>
             <div>
               <p>Going Rate</p>
-              <div className="Rate">
+              <div id="rate">
                 <h3>£</h3>
                 <input defaultValue={formData["RATE"]} onChange={(event) => { formData["RATE"] = parseInt(event.target.value) }} />
               </div>
             </div>
           </div>
         </div>
-        <div className="Controls">
+        <div id="controls">
           <button onClick={() => navigate("/settings/account")}>Cancel</button>
           <button onClick={updateHandle}>Update</button>
         </div>
