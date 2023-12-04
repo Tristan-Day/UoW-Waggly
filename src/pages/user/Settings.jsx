@@ -14,7 +14,6 @@ import { useContext, useEffect, useState } from 'react'
 import { AccountContext } from '../../App'
 import { Navigation } from '../../components'
 
-
 function Settings() {
   const [accountData] = useContext(AccountContext)
   const [accountOptionState, setAccountOptionState] = useState(null)
@@ -45,7 +44,7 @@ function Settings() {
           <div className="Sidebar">
             <h1>Account Settings</h1>
             <hr />
-            <div className="Options">
+            <div id="options">
               {accountOptionState}
               <div onClick={() => navigate("/settings/animals")}>
                 <Icon path={mdiPaw} size={0.9} />
