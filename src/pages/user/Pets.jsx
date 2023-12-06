@@ -13,7 +13,7 @@ import { PetCard } from '../../components'
 import { getPets, updatePet } from '../../data/User'
 
 function Pets() {
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState(<p id="subtitle">Loading...</p>)
   const [formData, setFormData] = useState({})
 
   const navigate = useNavigate()
