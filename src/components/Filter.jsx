@@ -16,7 +16,7 @@ export default function Sidebar({ applyHandle }) {
 
   const setMinimum = (event) => {
     var minimum
-    if (event.target.value !== 0) {
+    if (event.target.value > 1) {
       minimum = event.target.value
     }
     else {
@@ -31,7 +31,7 @@ export default function Sidebar({ applyHandle }) {
 
   const setMaximum = (event) => {
     var maximum
-    if (event.target.value !== 0) {
+    if (event.target.value > 1) {
       maximum = event.target.value
     }
     else {
