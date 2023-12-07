@@ -37,12 +37,12 @@ function Account() {
     }
 
     // Data validation checks
-    if (formData["FIRSTNAME"].length > 30)
+    if (formData["FIRST_NAME"].length > 30)
     {
       alert("Firstname cannot exceed 30 characters")
     }
 
-    if (formData["LASTNAME"].length > 30)
+    if (formData["LAST_NAME"].length > 30)
     {
       alert("Lastname cannot exceed 30 characters")
     }
