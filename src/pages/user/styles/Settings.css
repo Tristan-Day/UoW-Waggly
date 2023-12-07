@@ -23,7 +23,7 @@
 }
 
 .Sidebar hr {
-    margin: 0.75rem 0 0.75rem 0;
+    margin: 0.75rem 0 1.3rem 0;
 
     width: 35%;
     height: 3px;
@@ -31,15 +31,15 @@
     background-color: #F8F8F8;
 }
 
-.Sidebar .Options {
+.Sidebar #options {
     display: flex;
     flex-direction: column;
 
     gap: 0.5rem;
 }
 
-.Sidebar .Options div {
-    margin-top: 1rem;
+.Sidebar #options div {
+    margin-bottom: 0.5rem;
 
     display: flex;
     align-items: center;
@@ -47,10 +47,10 @@
     gap: 0.7rem;
 }
 
-.Sidebar .Options div:hover {
+.Sidebar #options div:hover {
     cursor: pointer;
 }
 
-.Sidebar .Options p {
+.Sidebar #options p {
     margin: 0;
 }

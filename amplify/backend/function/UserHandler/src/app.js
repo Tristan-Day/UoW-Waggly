@@ -79,9 +79,11 @@ app.get(PATH + "/search/:LOCATION", async function(request, response)
   const regex = /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/
   if (regex.test(request.params.LOCATION))
   {
+    // Remove any postfix (eg. 'SO22 5DZ' becomes 'SO22')
+
     parameters["IndexName"] = "PostcodeIndex"
     parameters["KeyConditionExpression"] = "POSTCODE = :postcode"
-    parameters["ExpressionAttributeValues"] = {":postcode" : request.params.LOCATION}
+    parameters["ExpressionAttributeValues"] = {":postcode" : request.params.LOCATION.split(' ')[0]}
   }
   else
   {
@@ -192,6 +194,19 @@ app.post(PATH + "/:IDENTIFIER", async function(request, response)
     if (missingFields.length != 0)
     {
       response.status(400).json({error : "Missing required field(s)", missingFields})
+      return
+    }
+
+    // Process postcode
+    const regex = /^[A-Z]{1,2}\d[A-Z\d]? \d[A-Z]{2}$/
+    if (regex.test(request.body["POSTCODE"]))
+    {
+      // Remove any postfix (eg. 'SO22 5DZ' becomes 'SO22')
+      request.body["POSTCODE"] = request.body["POSTCODE"].split(' ')[0]
+    }
+    else
+    {
+      response.status(400).json({error : "Invalid Postcode Format"})
       return
     }
 
