@@ -17,6 +17,24 @@ https://master.d21auoazgq6mrv.amplifyapp.com
 
 *```Note: This URL will only be active for the assessment period. ```*
 
+### Search Tips
+
+As of publication, several dummy listings have been added to the database to demonstrate search functionality.
+
+These can be found by entering a **full postcode** with the following prefix:
+```
+SO23
+SO16
+BN11
+```
+
+Alternatively, you can find walkers by entering the following locations:
+```
+Southampton
+Winchester
+Worthing
+```
+
 # Deploying the Application on the Cloud
 
 To deploy this application, you will require the following:
