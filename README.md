@@ -2,7 +2,7 @@
 
 This repository contains code submitted for Software Engineering Module (BS3221). The web application, built in a cloud-native approach with React and Express, allows dog walkers to advertise their services and owners to register their animals and find nearby walkers.
 
-The application is hosted on Amazon Web Services using Amplify, Lambda and, DynamoDB and API Gateway to facilitate a full-stack deployment. Currently, the master branch is configured with continuous deployment and integration.
+The application is hosted on Amazon Web Services using Amplify, Lambda, DynamoDB and API Gateway to facilitate a full-stack deployment. Currently, the master branch is configured with continuous deployment and integration.
 
 ## Features
 
