@@ -45,8 +45,10 @@ To deploy this application, you will require the following:
 
 To deploy the application 
 
-1. Use `amplify configure` to setup your AWS profile configuration
-2. Use `amplify publish` to push the stack defined in the respository to your AWS account.
+1. Use `amplify configure` to setup your AWS profile configuration.
+2. Delete `team-provider-info.json` from the `amplify` directory.
+3. Run `amplify init` specifying your AWS profile.
+4. Use `amplify push` to upload the stack to your AWS account.
 
 *`Note: This process has not been tested by the author and relies on publically available information. Should the process fail, please see 'Running the Application Locally'`*
 
