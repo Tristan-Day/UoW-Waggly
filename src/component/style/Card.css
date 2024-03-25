@@ -1,0 +1,57 @@
+.Card {
+  max-height: fit-content;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.7rem;
+  gap: 1rem;
+
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 2px;
+
+  background-color: #282841;
+  border-color: #f8f8f8;
+}
+
+.Card svg {
+  min-width: fit-content;
+  min-height: fit-content;
+}
+
+.Card h1,
+.Card h2 {
+  margin: 0;
+  text-align: left;
+}
+
+.Card h1 {
+  font-size: 27px;
+}
+
+.Card h2 {
+  font-size: medium;
+}
+
+.Card div p {
+  text-align: left;
+  font-size: small;
+
+  margin-top: 0.2rem;
+  margin-bottom: 3px;
+
+  max-height: 2.5rem;
+  overflow: hidden;
+}
+
+.Card #price {
+  text-align: right;
+
+  margin-left: auto;
+  margin-right: 0.7rem;
+}
+
+.Card #price p {
+  text-align: right;
+}

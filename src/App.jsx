@@ -1,13 +1,12 @@
-import './App.css'
-
 import { Amplify } from 'aws-amplify'
 import awsExports from './aws-exports'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useEffect, createContext, useState } from 'react'
 
-import { getAccount } from './data/User'
-import { Home, Search, Signup, PetOverview, Settings, AccountOverview } from './pages'
+import { getAccount } from './logic/User'
+import { Home, Search, Signup } from './page'
+import { UserRoutes } from './page/user'
 
 Amplify.configure(awsExports)
 export const AccountContext = createContext()
@@ -19,8 +18,7 @@ function App() {
     async function checkContextAvailability() {
       try {
         setAccountData(await getAccount())
-      }
-      catch (error) {
+      } catch (error) {
         return
       }
     }
@@ -31,18 +29,10 @@ function App() {
     <AccountContext.Provider value={[accountData, setAccountData]}>
       <BrowserRouter>
         <Routes>
-          {/* Public Routes */}
-          <Route path='*' element={<Home />} />
-
-          {/* Authenticated Routes */}
-          <Route path='search' element={<Search />} />
-          <Route path='signup' element={<Signup />} />
-
-          {/* Pet Registration and Profile Managment */}
-          <Route path='settings' element={<Settings />}>
-            <Route path='*' element={<AccountOverview />} />
-            <Route path='animals' element={<PetOverview />} />
-          </Route>
+          <Route path="*" element={<Home />} />
+          <Route path="search" element={<Search />} />
+          <Route path="signup" element={<Signup />} />
+          {UserRoutes()}
         </Routes>
       </BrowserRouter>
     </AccountContext.Provider>

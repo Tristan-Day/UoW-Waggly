@@ -1,6 +1,7 @@
-import './styles/Home.css'
+import '../App.css'
+import '../style/Home.css'
 
-import { Navigation } from "../components/"
+import { Navigation } from "../component/"
 
 export default function Home() 
 {

@@ -1,0 +1,30 @@
+#question {
+  margin: 5rem 0rem 4rem 0rem;
+  font-size: 40px;
+
+  text-align: center;
+}
+
+#features {
+  display: flex;
+
+  justify-content: center;
+  text-align: center;
+
+  margin: 2rem;
+  gap: 5rem;
+}
+
+#features div {
+  display: flex;
+  flex-direction: column;
+
+  width: 15rem;
+  min-width: 15rem;
+}
+
+#features img {
+  margin-bottom: 2rem;
+  object-fit: contain;
+  max-height: 7rem;
+}

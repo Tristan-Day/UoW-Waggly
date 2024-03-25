@@ -1,4 +1,4 @@
-import './styles/Card.css'
+import './style/Card.css'
 
 import Icon from '@mdi/react'
 import { mdiAccountCircle, mdiPaw } from '@mdi/js'
@@ -23,10 +23,10 @@ export function WalkerCard({ name, location, description, rate }) {
 
 export function PetCard({ name, gender, weight, description }) {
   return (
-    <div className="Card" style={{width: "25rem"}}>
+    <div className="Card" style={{ width: '25rem' }}>
       <Icon path={mdiPaw} size={3.5} color="#F8F8F8" />
       <div>
-        <div style={{display: "flex", gap: "0.7rem", alignItems: "center"}}>
+        <div style={{ display: 'flex', gap: '0.7rem', alignItems: 'center' }}>
           <h1>{name}</h1>
           <p>{gender}</p>
         </div>

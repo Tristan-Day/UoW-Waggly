@@ -1,136 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  overflow: hidden;
 
-    background-color: #282A36;
-    color: #F8F8F8;
+  background-color: #282a36;
+  color: #f8f8f8;
 }
 
-button {
-    padding: 0.4rem;
-    border-radius: 5px;
+.Waggly button {
+  padding: 0.4rem;
+  border-radius: 5px;
 
-    background-color: #2e313d;
-    border-color: #F8F8F8;
+  background-color: #2e313d;
+  border-color: #f8f8f8;
 
-    color: #F8F8F8;
+  color: #f8f8f8;
 }
 
-button:hover {
-    background-color: #3a3e4d;
+.Waggly button:hover {
+  background-color: #3a3e4d;
 }
 
-button:active {
-    background-color: #23262f;
-    outline: none;
+.Waggly button:active {
+  background-color: #23262f;
+  outline: none;
 }
 
-input {
-    padding: 0.4rem;
+.Waggly input {
+  padding: 0.4rem;
 
-    border-radius: 5px;
-    border-style: solid;
+  border-radius: 5px;
+  border-style: solid;
 
-    background-color: #2e313d;
-    border-color: #F8F8F8;
+  background-color: #2e313d;
+  border-color: #f8f8f8;
 
-    color: #F8F8F8;
+  color: #f8f8f8;
 }
 
-input:hover {
-    background-color: #3a3e4d;
+.Waggly input:hover {
+  background-color: #3a3e4d;
 }
 
-input:focus {
-    background-color: #3a3e4d;
-    outline: none;
+.Waggly input:focus {
+  background-color: #3a3e4d;
+  outline: none;
 }
 
-input[type="range"] {
-    -webkit-appearance: none;
+.Waggly input[type='range'] {
+  -webkit-appearance: none;
 
-    width: 100%;
-    height: 10px;
+  width: 100%;
+  height: 10px;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    background-color: #2e313d;
-    border-color: #F8F8F8;
+  background-color: #2e313d;
+  border-color: #f8f8f8;
 
-    border-style: solid;
-    border-width: 1px;
+  border-style: solid;
+  border-width: 1px;
 
-    outline: none;
+  outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
+.Waggly input[type='range']::-webkit-slider-thumb {
+  appearance: none;
 
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    background-color: #F8F8F8;
-    border-color: #2e313d;
+  background-color: #f8f8f8;
+  border-color: #2e313d;
 
-    border-style: solid;
-    border-width: 1px;
+  border-style: solid;
+  border-width: 1px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
-input[type="range"]:hover {
-    background-color: #3a3e4d;
+.Waggly input[type='range']:hover {
+  background-color: #3a3e4d;
 }
 
-input[type="range"]:focus {
-    background-color: #3a3e4d;
-    outline: none;
+.Waggly input[type='range']:focus {
+  background-color: #3a3e4d;
+  outline: none;
 }
 
-textarea {
-    resize: none;
+.Waggly textarea {
+  resize: none;
 
-    padding: 0.4rem;
+  padding: 0.4rem;
 
-    border-radius: 5px;
-    border-style: solid;
+  border-radius: 5px;
+  border-style: solid;
 
-    background-color: #2e313d;
-    border-color: #F8F8F8;
+  background-color: #2e313d;
+  border-color: #f8f8f8;
 
-    color: #F8F8F8;
+  color: #f8f8f8;
 }
 
-textarea:hover {
-    background-color: #3a3e4d;
+.Waggly textarea:hover {
+  background-color: #3a3e4d;
 }
 
-textarea:focus {
-    background-color: #3a3e4d;
-    outline: none;
+.Waggly textarea:focus {
+  background-color: #3a3e4d;
+  outline: none;
 }
 
-select {
-    padding: 0.6rem;
-    border-radius: 5px;
+.Waggly select {
+  padding: 0.6rem;
+  border-radius: 5px;
 
-    background-color: #2e313d;
-    border-color: #F8F8F8;
+  background-color: #2e313d;
+  border-color: #f8f8f8;
 
-    color: #F8F8F8;
+  color: #f8f8f8;
 }
 
-select:hover {
-    background-color: #3a3e4d;
+.Waggly select:hover {
+  background-color: #3a3e4d;
 }
 
-select:active {
-    background-color: #23262f;
-    outline: none;
+.Waggly select:active {
+  background-color: #23262f;
+  outline: none;
 }

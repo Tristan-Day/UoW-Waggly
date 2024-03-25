@@ -1,0 +1,56 @@
+.Waggly .Form {
+  margin: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  flex-grow: 1;
+}
+
+.Waggly .Form #heading {
+  margin: 0;
+}
+
+.Waggly .Form #subheading {
+  margin: 0.5rem 0rem 1rem 0rem;
+}
+
+.Waggly .Form #fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Waggly .Form #fields input {
+  width: 15rem;
+}
+
+.Waggly .Form #fields #description {
+  height: 20vb;
+  width: 40vb;
+
+  padding: 1rem;
+}
+
+.Waggly .Form #fields #rate {
+  display: flex;
+
+  justify-content: right;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.Waggly .Form #fields #rate h3 {
+  margin: 0;
+}
+
+.Waggly .Form #controls {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 3rem;
+}
+
+.Waggly .Form #controls button {
+  width: 7rem;
+}
