@@ -10,13 +10,6 @@ The application is hosted on Amazon Web Services using Amplify, Lambda, DynamoDB
 * Search public listings matching a specific location and defined price range.
 * Register and view animals.
 
-## Live Deployment
-
-A live version of the application can be found at:\
-https://master.d21auoazgq6mrv.amplifyapp.com
-
-*```Note: This URL will only be active for the assessment period. ```*
-
 ### Search Tips
 
 As of publication, several dummy listings have been added to the database to demonstrate search functionality.
